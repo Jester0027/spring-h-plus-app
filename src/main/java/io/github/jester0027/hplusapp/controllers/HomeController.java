@@ -12,8 +12,18 @@ public class HomeController {
         return "index";
     }
 
-    @GetMapping("goToSearch")
+    @GetMapping("/goToSearch")
     public String goToSearch() {
         return "search";
+    }
+
+    @GetMapping("/goToLogin")
+    public String goToLogin() {
+        return "login";
+    }
+
+    @GetMapping("/goToRegister")
+    public String goToRegister() {
+        return "register";
     }
 }
