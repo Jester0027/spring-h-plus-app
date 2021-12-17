@@ -1,6 +1,8 @@
 package io.github.jester0027.hplusapp.beans;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
@@ -21,7 +23,9 @@ public class User {
             message = "Password must have one upper case, one lower case and a between 6 and 10 characters"
     )
     private String password;
-    private String gender;
+
+    @Enumerated(EnumType.STRING)
+    private Gender gender;
 
     @NotNull(message = "Activity cannot be empty")
     private String activity;
@@ -57,11 +61,11 @@ public class User {
         this.password = password;
     }
 
-    public String getGender() {
+    public Gender getGender() {
         return gender;
     }
 
-    public void setGender(String gender) {
+    public void setGender(Gender gender) {
         this.gender = gender;
     }
 
