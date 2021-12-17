@@ -1,4 +1,3 @@
-<jsp:useBean id="errorMessage" type="java.lang.String"/>
 <!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
@@ -27,7 +26,7 @@
     </div><!-- container tagline -->
 </header><!-- #home -->
 <section id="error" class="section">
-<p class = "error">${errorMessage}</p>
+<p class = "error">Sorry, dementors have attacked, Professor McGonagall is attending to it:)</p>
 </section>
 <footer class="footer">
     <div class="container">
