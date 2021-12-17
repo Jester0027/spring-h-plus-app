@@ -46,11 +46,11 @@
             <label>Last Name</label> <form:input path="lastName" type="text"/><form:errors path="lastName" cssClass="error" /><br/>
             <label>What do you want to do? </label>
             <form:radiobutton path="activity" id="activity" value="sport" />Play a Sport?
-            <form:radiobutton path="activity" id="activity" value="gym" />Hit the Gym?<br/>
+            <form:radiobutton path="activity" id="activity" value="gym" />Hit the Gym?<form:errors path="activity" cssClass="error" /><br/>
             <label>Date of birth</label>
             <form:input path="dateOfBirth" type="date"/><br/>
             <label>Gender</label>
-            <form:select path="gender" items="${genderItems}"/>
+            <form:select path="gender" items="${genderItems}" />
             <br/>
             <input type="submit" value="Submit" id="submit">
         </form:form>

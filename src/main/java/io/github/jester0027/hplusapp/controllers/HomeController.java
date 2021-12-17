@@ -1,5 +1,6 @@
 package io.github.jester0027.hplusapp.controllers;
 
+import io.github.jester0027.hplusapp.beans.Login;
 import io.github.jester0027.hplusapp.beans.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,13 +33,18 @@ public class HomeController {
         return "register";
     }
 
-    @ModelAttribute("newuser")
-    public User getDefaultUser() {
-        return new User();
-    }
-
-    @ModelAttribute("genderItems")
-    public List<String> getGenderItems() {
-        return Arrays.asList("Male", "Female", "Other");
-    }
+//    @ModelAttribute("newuser")
+//    public User getDefaultUser() {
+//        return new User();
+//    }
+//
+//    @ModelAttribute("genderItems")
+//    public List<String> getGenderItems() {
+//        return Arrays.asList("Male", "Female", "Other");
+//    }
+//
+//    @ModelAttribute("login")
+//    public Login getLogin() {
+//        return new Login();
+//    }
 }
