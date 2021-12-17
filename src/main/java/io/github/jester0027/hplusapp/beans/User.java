@@ -6,6 +6,7 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+import java.util.Date;
 
 @Entity
 public class User {
@@ -16,7 +17,7 @@ public class User {
     private String username;
 
     @Pattern(
-            regexp = "((?=.*[A-Z].{6,10}))",
+            regexp = "((?=.*[A-Z]).{6,10})",
             message = "Password must have one upper case, one lower case and a between 6 and 10 characters"
     )
     private String password;
@@ -30,7 +31,7 @@ public class User {
 
     @NotEmpty(message = "Last name cannot be empty")
     private String lastName;
-    private String dateOfBirth;
+    private Date dateOfBirth;
 
     public int getId() {
         return id;
@@ -88,11 +89,11 @@ public class User {
         this.lastName = lastName;
     }
 
-    public String getDateOfBirth() {
+    public Date getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(String dateOfBirth) {
+    public void setDateOfBirth(Date dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 }
