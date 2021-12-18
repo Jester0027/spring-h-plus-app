@@ -3,6 +3,7 @@ package io.github.jester0027.hplusapp.controllers;
 import io.github.jester0027.hplusapp.beans.Product;
 import io.github.jester0027.hplusapp.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.core.task.AsyncTaskExecutor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,6 +20,7 @@ public class SearchController {
     @Autowired
     private ProductRepository productRepository;
 
+    @Qualifier("asyncTaskExecutor")
     @Autowired
     private AsyncTaskExecutor executor;
 
@@ -37,11 +39,6 @@ public class SearchController {
 //        };
 
         executor.execute(() -> {
-            try {
-                Thread.sleep(6000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
             System.out.println("Thread from spring mvc task executor: " + Thread.currentThread().getName());
             List<Product> products = productRepository.searchByName(search);
             model.addAttribute("products", products);
