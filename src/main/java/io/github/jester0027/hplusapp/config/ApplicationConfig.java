@@ -1,6 +1,7 @@
 package io.github.jester0027.hplusapp.config;
 
 import io.github.jester0027.hplusapp.converters.StringToEnumConverter;
+import io.github.jester0027.hplusapp.interceptors.LoggingInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -9,11 +10,12 @@ import org.springframework.core.task.AsyncTaskExecutor;
 import org.springframework.format.FormatterRegistry;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.web.servlet.config.annotation.AsyncSupportConfigurer;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
-import org.springframework.web.servlet.view.*;
-
-import java.util.Locale;
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
+import org.springframework.web.servlet.view.JstlView;
+import org.springframework.web.servlet.view.XmlViewResolver;
 
 @Configuration
 @ComponentScan(basePackages = "io.github.jester0027.hplusapp")
@@ -26,7 +28,7 @@ public class ApplicationConfig extends WebMvcConfigurationSupport {
     }
 
     @Bean
-    public InternalResourceViewResolver jspViewResolver(){
+    public InternalResourceViewResolver jspViewResolver() {
         InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
         viewResolver.setPrefix("/WEB-INF/jsp/");
         viewResolver.setSuffix(".jsp");
@@ -67,5 +69,10 @@ public class ApplicationConfig extends WebMvcConfigurationSupport {
         ThreadPoolTaskExecutor threadPoolTaskExecutor = new ThreadPoolTaskExecutor();
         threadPoolTaskExecutor.setThreadNamePrefix("hplussapp-thread-");
         return threadPoolTaskExecutor;
+    }
+
+    @Override
+    protected void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(new LoggingInterceptor()).addPathPatterns("/*");
     }
 }
