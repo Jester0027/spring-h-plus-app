@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -18,10 +19,10 @@
             </div>
             <!-- branding -->
             <ul class="navbar">
-                <li><a href="/home">home</a></li>
-                <li><a href="/goToLogin">login</a></li>
-                <li><a href="/goToSearch">search</a></li>
-                <li><a href="#">linkedin</a></li>
+                <li><a href="/home"><spring:message code="label.home" /></a></li>
+                <li><a href="/goToLogin"><spring:message code="label.login" /></a></li>
+                <li><a href="/goToSearch"><spring:message code="label.search" /></a></li>
+                <li><a href="/linkedInRedirect"><spring:message code="label.linkedin" /></a></li>
             </ul><!-- navbar -->
             <!-- navbar -->
         </div>

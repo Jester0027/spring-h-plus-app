@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <head>
     <meta charset="UTF-8">
     <title>HPlus</title>
@@ -13,10 +14,10 @@
                 <a href="#home"><img src="images/hpluslogo.svg" alt="Logo - H Plus Sports"></a>
             </div><!-- branding -->
             <ul class="navbar">
-                <li><a href="/home">home</a></li>
-                <li><a href="/logout">logout</a></li>
-                <li><a href="/goToSearch">search</a></li>
-                <li><a href="/linkedInRedirect">linkedin</a></li>
+                <li><a href="/home"><spring:message code="label.home" /></a></li>
+                <li><a href="/logout"><spring:message code="label.logout" /></a></li>
+                <li><a href="/goToSearch"><spring:message code="label.search" /></a></li>
+                <li><a href="/linkedInRedirect"><spring:message code="label.linkedin" /></a></li>
             </ul><!-- navbar -->
 
         </div><!-- container nav-elements -->
